@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCdzQVJ8BeDGjmMMdg6uCFCjCJOLWreUzE",
+    authDomain: "myport-72c27.firebaseapp.com",
+    databaseURL: "https://myport-72c27.firebaseio.com",
+    projectId: "myport-72c27",
+    storageBucket: "myport-72c27.appspot.com",
+    messagingSenderId: "58683527779",
+    appId: "1:58683527779:web:ed45b5f39b94c3fb1a5e56"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script>
+    // var ptID = window.location.href.split('?').pop();
+</script>
+
+<style>
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+</style>
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <!-- <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a> -->
+  <a href="profile.html" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"></i>My Portfolio</a>
+  <!-- <a href="profile.html" class="w3-bar-item w3-button w3-wide"><b>My Portfolio</b></a> -->
+  <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a> -->
+  <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a> -->
+  <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a> -->
+  <!-- <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button">One new friend request</a>
+      <a href="#" class="w3-bar-item w3-button">John Doe posted on your wall</a>
+      <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
+    </div>
+  </div> -->
+  <a class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white" title="My Account" onclick="openNav()" >
+  <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account"></a> -->
+    <img src="images/logo.jpg" class="w3-circle" style="height:25px;width:25px" alt="Avatar">
+  </a>
+ </div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large"></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large"></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Update Profile</a>
+  <!-- <a href="#" class="w3-bar-item w3-button w3-padding-large">Reference</a> -->
+  <a href="global.html" class="w3-bar-item w3-button w3-padding-large">Global</a>
+  <a onclick="logout();" class="w3-bar-item w3-button w3-padding-large">Log Out</a>
+</div>
+
+<script>
+  function logout(){
+    firebase.auth().signOut();
+    window.location.href = 'index.html';
+  }
+</script>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">My Profile</h4>
+         <p class="w3-center"><img src="images/avatar3.png" class="w3-circle" id="userImage" style="height:106px;width:106px" alt="Avatar"></p>
+         <hr>
+         <!-- <p><i class="fa fa-user fa-fw w3-margin-right w3-text-theme" id="userName" ></i>Name</p>
+         <p><i class="fa fa-map fa-fw w3-margin-right w3-text-theme" id="userLocation"></i>Location</p>
+         <p><i class="fa fa-phone fa-fw w3-margin-right w3-text-theme" id="userPhone"></i>Phone</p> -->
+          <h7 class="w3-text-black" id="userName">Name</h7><br>
+          <h7 class="w3-text-theme" id="userLocation">Location</h7><br>
+          <h7 class="w3-text-theme" id="userPhone">Phone</h7><br>
+        </div>
+      </div>
+      <br>
+      <script>
+        // var ptID = window.location.href.split('?').pop();
+        var uid = localStorage["Uid"];
+        // alert(uid);
+        var uName;
+        var uURL;
+        var uLocation;
+        var uPhone;
+    
+        var databaseRef = firebase.database().ref('Profile');
+    
+    
+            databaseRef.once('value', function(snapshot){
+            snapshot.forEach(function(childSnapshot) {
+                var childKey = childSnapshot.key;
+                var childData = childSnapshot.val();
+    
+                cID = childData.profileID;
+    
+                if(cID == uid){
+
+                  uName  = childData.profileName;
+                  uLocation  = childData.profileLocation;
+                  uPhone  = childData.profilePhone;
+                  uURL = childData.profileURL;
+
+                  document.getElementById("userImage").src = uURL;
+                  document.getElementById("userName").innerHTML= uName;
+                  document.getElementById("userLocation").innerHTML= uLocation;
+                  document.getElementById("userPhone").innerHTML= uPhone;
+    
+                }
+              });
+            });
+    
+        </script>
+    
+    <!-- End Left Column -->
+    </div>
+    <style>
+        img.hasBorder { border:1px solid; }
+      </style>
+
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+
+        <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container w3-padding" >
+
+              <h6 class="w3-opacity w3-center"  id="gHeader"><b>GALLERY</b></h6>
+
+              <!-- <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
+              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button>  -->
+
+
+            <script>
+                var config = {
+                    // ...
+                };
+                firebase.initializeApp(config);     
+            </script>
+              
+                  <style>
+              
+                  th, td {
+                      text-align: left;
+                      padding: 8px;
+                  }
+                  .btn{
+                    border-radius: 8px;
+                    background-color: #555555;
+                    color: white;
+                    border: 2px solid;
+                    padding: 15px 25px;
+                  }
+                  .btn:hover{
+                    background-color: white;
+                  }
+                  </style>
+                  </head>
+                  <body>
+              
+                    <!-- Picture Table -->
+                        <div class="w3-container">
+                          <br>
+                          <table id="pt-table" >
+                            <tr>
+                              <td width="40%" height="1"></td>
+                              <td width="20%"></td>
+              
+              
+                            </tr>
+                          </table>
+              
+                          <script>
+                            //   var galleryH = window.location.href.split('?').pop();
+                            var galleryH = localStorage["Category"];
+                            var uid = localStorage["Uid"];
+                            // alert(uid);
+                            // alert(galleryH);
+
+
+                            if(galleryH=="Wedding"){
+                              galHead = "WEDDING";
+                            }
+                            else if(galleryH=="Food"){
+                              galHead = "FOOD";
+                            }
+                            else if(galleryH=="Lightpainting"){
+                               galHead = "LIGHT PAINTING";
+                            }
+                            else if(galleryH=="Landscape"){
+                               galHead = "LANDSCAPE";
+                            }
+                            else if(galleryH=="Micro"){
+                               galHead = "MICRO";
+                            }
+                            else if(galleryH=="Street"){
+                               galHead = "STREET";
+                            }
+                            else if(galleryH=="Milkyway"){
+                               galHead = "MILKY WAY";
+                            }
+                            else if(galleryH=="Portrait"){
+                               galHead = "PORTRAIT";
+                            }
+                            else if(galleryH=="Fashion"){
+                               galHead = "FASHION";
+                            }
+
+                            document.getElementById("gHeader").innerHTML = galHead;
+
+                            // var uID = localStorage["Uid"];
+              
+                            var tbp = document.getElementById('pt-table');
+                            var rowIndex = 0;
+                            var databaseRef = firebase.database().ref('user_upload/'+uid).orderByValue();
+                            // var databaseRef = firebase.database().ref('all_image').orderByValue();
+              
+                              databaseRef.once('value', function(snapshot){
+                              snapshot.forEach(function(childSnapshot) {
+                                  var childKey = childSnapshot.key;
+                                  var childData = childSnapshot.val();
+
+                                  var imageCat = childData.imageCategory;
+
+                                  if(imageCat == galleryH){
+              
+                                  var row = tbp.insertRow(rowIndex);
+                                  var cellPoster = row.insertCell(0);
+                                  //var cellDetails = row.insertCell(1);
+                                  var cellView = row.insertCell(1);
+              
+                                  var img2 = document.createElement("img");
+                                  img2.src = childData.imageURL;
+                                  img2.setAttribute("width", "100%");
+              
+                                  img2.setAttribute("position", "middle");
+                                  cellPoster.appendChild(img2);
+              
+                                  //pDetails = "Details : " + childData.details;
+                                  //document.getElementById("hargaP").innerHTML= pDetails;
+              
+                                  var tID = childData.imageID;
+                                  var btn = document.createElement('input');
+                                  btn.type = "button";
+                                  btn.className = "btn";
+                                  btn.value = "VIEW";
+                                  btn.color = "black";
+                                  btn.onclick = (function(tID) {return function() {pView(tID);}})(tID);
+                                  cellView.appendChild(btn);
+              
+                                  rowIndex = rowIndex + 1;
+                                  }
+                                });
+                              });
+              
+                              function pView(x) {
+                                  var someValue = x;
+                                  window.location = 'details.html?'+someValue;
+                              }
+              
+                              function reload_page(){
+                               window.location.reload();
+                              }
+                        </script>
+              
+                        </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+          
+
+      
+      <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">1 min</span>
+        <h4>John Doe</h4><br>
+        <hr class="w3-clear">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+              <img src="/w3images/lights.jpg" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
+            </div>
+            <div class="w3-half">
+              <img src="/w3images/nature.jpg" style="width:100%" alt="Nature" class="w3-margin-bottom">
+          </div>
+        </div>
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+      </div> -->
+      
+      <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="/w3images/avatar5.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">16 min</span>
+        <h4>Jane Doe</h4><br>
+        <hr class="w3-clear">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+      </div>   -->
+
+      <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">32 min</span>
+        <h4>Angie Jane</h4><br>
+        <hr class="w3-clear">
+        <p>Have you seen this?</p>
+        <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+      </div>  -->
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    <!-- <div class="w3-col m2">
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Upcoming Events:</p>
+          <img src="/w3images/forest.jpg" alt="Forest" style="width:100%;">
+          <p><strong>Holiday</strong></p>
+          <p>Friday 15:00</p>
+          <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
+        </div>
+      </div>
+      <br>
+      
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Friend Request</p>
+          <img src="/w3images/avatar6.png" alt="Avatar" style="width:50%"><br>
+          <span>Jane Doe</span>
+          <div class="w3-row w3-opacity">
+            <div class="w3-half">
+              <button class="w3-button w3-block w3-green w3-section" title="Accept"><i class="fa fa-check"></i></button>
+            </div>
+            <div class="w3-half">
+              <button class="w3-button w3-block w3-red w3-section" title="Decline"><i class="fa fa-remove"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      
+      <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
+        <p>ADS</p>
+      </div>
+      <br>
+      
+      <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
+        <p><i class="fa fa-bug w3-xxlarge"></i></p>
+      </div> -->
+      
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<!-- <footer class="w3-container w3-theme-d3 w3-padding-16">
+  <h5>Footer</h5>
+</footer>
+
+<footer class="w3-container w3-theme-d5">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer> -->
+ 
+<footer class="w3-center w3-theme-d5 w3-padding">
+        <p>&copy; 2019,  My Portfolio<br>By SAHYRO</p>
+    </footer>
+
+<script>
+
+// function openGallery(x) {
+//     var uid = window.location.href.split('?').pop();
+//     localStorage["Category"] = x;
+//     localStorage["Uid"] = uid;
+//     //  var someValue = x;
+//     window.location = 'details.html';
+// }
+
+// Accordion
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-theme-d1";
+  } else { 
+    x.className = x.className.replace("w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace(" w3-theme-d1", "");
+  }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html> 

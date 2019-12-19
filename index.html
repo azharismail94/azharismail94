@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-khaki.css">
+<link rel="stylesheet" href="/css/moving-letters.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+</head>
+
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCdzQVJ8BeDGjmMMdg6uCFCjCJOLWreUzE",
+    authDomain: "myport-72c27.firebaseapp.com",
+    databaseURL: "https://myport-72c27.firebaseio.com",
+    projectId: "myport-72c27",
+    storageBucket: "myport-72c27.appspot.com",
+    messagingSenderId: "58683527779",
+    appId: "1:58683527779:web:ed45b5f39b94c3fb1a5e56"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<!-- Leave out Storage -->
+<!-- <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script> -->
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+div.ex4 {
+    height: 300px;
+    overflow: visible;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card" id="myNavbar">
+    <a href="index.html" class="w3-bar-item w3-button w3-wide"><b>My Portfolio</b></a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="about.html" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i>ABOUT</a>
+      <a href="contact.html" class="w3-bar-item w3-button"><i class="fa fa-phone"></i> CONTACT</a>
+      <a href="login.html" target="_blank" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o"></i> LOGIN</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16"><i class="fa fa-sign-out fa-flip-horizontal"></i></a>
+  <a href="about.html" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="contact.html" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+  <a href="login.html" target="_blank" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+</nav>
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/myport.jpg");
+  height: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+</style>
+
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 class="ml1">
+      <span class="text-wrapper">
+        <span class="line line1"></span>
+        <!-- <span class="letter">WELCOME TO</span> -->
+        <span class="letters">My Portfolio</span>
+        
+        <span class="line line2"></span>
+      </span>
+    </h1>
+  </div>
+</div>
+
+<script>
+
+// Wrap every letter in a span
+$('.ml1 .letters').each(function(){
+  $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
+});
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml1 .letter',
+    scale: [0.3,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 600,
+    delay: function(el, i) {
+      return 70 * (i+1)
+    }
+  }).add({
+    targets: '.ml1 .line',
+    scaleX: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700,
+    offset: '-=875',
+    delay: function(el, i, l) {
+      return 80 * (l - i);
+    }
+  }).add({
+    targets: '.ml1',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+
+</script>
+
+<style>
+
+.ml1 {
+  font-weight: 900;
+  font-size: 3.5em;
+}
+
+.ml1 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.ml1 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+}
+
+.ml1 .line {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  transform-origin: 0 0;
+}
+
+.ml1 .line1 { top: 0; }
+.ml1 .line2 { bottom: 0; }
+
+</style>
+
+
+ <!-- Promo Section - "Training"  -->
+ <!-- 
+<div class="w3-container w3-theme-l4" style="padding:10px 10px" id="training">
+  <h3 class="w3-center"><b>TRAINING THAT AVAILABLE</b></h3>
+  <div class="w3-row-padding w3-center">
+
+    <script>
+      var config = {
+        // ...
+      };
+      firebase.initializeApp(config);
+
+    </script>
+
+    <style>
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+    .btn{
+      border-radius: 8px;
+      background-color: #555555;
+      color: white;
+      border: 2px solid;
+      padding: 15px 25px;
+    }
+    .btn:hover{
+      background-color: white;
+    }
+    </style>
+    </head>
+    <body>
+
+      //Test Poster Table
+          <div class="w3-container">
+            <br>
+            <table id="pt-table" >
+              <tr>
+                <td width="40%"></td>
+                <td width="20%"></td>
+
+
+              </tr>
+            </table>
+
+            <script>
+
+              var tbp = document.getElementById('pt-table');
+              var rowIndex = 1;
+              var databaseRef = firebase.database().ref('posterD').orderByValue();
+
+                databaseRef.once('value', function(snapshot){
+                snapshot.forEach(function(childSnapshot) {
+                    var childKey = childSnapshot.key;
+                    var childData = childSnapshot.val();
+
+                    var row = tbp.insertRow(rowIndex);
+                    var cellPoster = row.insertCell(0);
+                    //var cellDetails = row.insertCell(1);
+                    var cellView = row.insertCell(1);
+
+                    var img2 = document.createElement("img");
+                    img2.src = childData.url;
+                    img2.setAttribute("width", "100%");
+
+                    img2.setAttribute("position", "middle");
+                    cellPoster.appendChild(img2);
+
+                    //pDetails = "Details : " + childData.details;
+                    //document.getElementById("hargaP").innerHTML= pDetails;
+
+                    var tID = childData.id;
+                    var btn = document.createElement('input');
+                    btn.type = "button";
+                    btn.className = "btn";
+                    btn.value = "VIEW";
+                    btn.color = "black";
+                    btn.onclick = (function(tID) {return function() {pView(tID);}})(tID);
+                    cellView.appendChild(btn);
+
+                    rowIndex = rowIndex + 1;
+                  });
+                });
+
+                function pView(x) {
+                    var someValue = x;
+                    window.location = 'details.html?'+someValue;
+                }
+
+                function reload_page(){
+                 window.location.reload();
+                }
+          </script>
+
+          </div>
+
+  </div>
+</div> -->
+
+<!-- Work Section -->
+<div class="w3-container w3-theme-l1" style="padding:40px 16px" id="gallery">
+  <h3 class="w3-center"><b>BECOME PART OF OUT JOURNEY<b></h3>
+
+  <div class="w3-row-padding" style="margin-top:40px">
+    <div class="w3-third">
+      <img src="images/mp01.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="POTRAIT">
+    </div>
+    <div class="w3-third">
+      <img src="images/mp06.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="WEDDING">
+    </div>
+    <div class="w3-third">
+      <img src="images/mp07.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="MICRO">
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-third">
+      <img src="images/mp04.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="LANDSCAPE">
+    </div>
+    <div class="w3-third">
+      <img src="images/mp05.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="STREET">
+    </div>
+    <div class="w3-third">
+      <img src="images/mp03.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="LANDSCAPE">
+    </div>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding">
+    <p>&copy; 2019,  My Portfolio<br>By SAHYRO</p>
+</footer>
+
+<!-- Add Google Maps -->
+<script>
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+    } else {
+        mySidebar.style.display = 'block';
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+</body>
+</html>

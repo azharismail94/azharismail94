@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+div.ex4 {
+    height: 300px;
+    overflow: visible;
+}
+</style>
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar w3-black w3-card" id="myNavbar">
+      <a href="index.html" class="w3-bar-item w3-button w3-wide"><b>My Portfolio</b></a>
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
+        <a href="about.html" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i>ABOUT</a>
+        <a href="contact.html" class="w3-bar-item w3-button"><i class="fa fa-phone"></i> CONTACT</a>
+        <a href="login.html" target="_blank" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o"></i> LOGIN</a>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16"><i class="fa fa-sign-out fa-flip-horizontal"></i></a>
+    <a href="about.html" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+    <a href="contact.html" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+    <a href="login.html" target="_blank" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+  </nav>
+
+<!-- About Section -->
+<div class="w3-container w3-light-gray" style="padding:80px 16px" id="about">
+  <h2 class="w3-center"><b>ABOUT ME</b></h2>
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <p>Born in ______ 1994, currently studying in Universiti Utara Malaysia (UUM), in Master Degree in Photography.
+        I'm from _______, Kelantan. Passionate in photography and hiking. </p>
+    </div>
+    <div class="w3-col m6">
+      <img class="w3-image w3-round-large" src="images/uum.jpg" alt="Buildings" width="700" height="394">
+    </div>
+  </div>
+</div>
+
+
+<!-- Facilities Section -->
+<div class="w3-container w3-blue-gray w3-padding-64">
+  <div class="w3-row-padding">
+    <div class="w3-half">
+      <div class="w3-quarter"><p></p>
+      </div>
+      <div class="w3-threequarter">
+        <h3><b>TESTING LAB / HALL</b></h3>
+        <p>1. Pearson VUE Testing Lab</p>
+        <p>2. ETS : TOEFL iBT® Testing Lab</p>
+        <p>3. Seminar Hall</p><br>
+      </div>
+      <img class="w3-image w3-round-large" src="images/lab.jpg" alt="Buildings" width="90%">
+    </div>
+    <div class="w3-half"><br>
+      <p class="w3-wide"><i class="fa fa-eye w3-margin-right"></i><b>VISION</b></p>
+      <p>TO BE ACKNOWLEDGED AS A CENTRE OF EXCELLENCE AND MAIN REFERENCE IN ENTERPRISE COMPUTING.</p>
+      <p class="w3-wide"><i class="fa fa-handshake-o w3-margin-right"></i><b>MISSION</b></p>
+      <p>TO ACTUALIZE THE ASPIRATION OF SOC AS THE CENTRE OF EXCELLENCE AND MAIN REFERENCE IN,
+        TEACHING AND LEARNING,
+        RESEARCH AND INNOVATION,
+        PUBLICATION AND CONSULTATION, AND
+        PROFESSIONAL TRAINING IN THE ENTERPRISE COMPUTING RELATED AREAS.</p>
+      <p class="w3-wide"><i class="fa fa-podcast w3-margin-right"></i><b>OBJECTIVE</b></p>
+      <p>- TO CATER THE TRAINING NEEDS OF UUM COMMUNITY AND NORTHEN REGION.</p>
+      <p>- TO PROVIDES CONSULTATION AND RESEARH SERVICES TO THE RELATED ORGANIZATION AND INDUSTRIES.</p>
+      <p>- TO PROVIDE ADVANCEMENT IN KNOWLEDGE AND PRACTICE OF CURRENT TEACHNOLOGY.</p>
+      <p>- TO EXPLORE OPPORTUNITIES FOR MUTUAL COOPORATION WITH REPUTABLE INDUSTRIES</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding">
+    <p>&copy; 2019,  My Portfolio<br>By SAHYRO</p>
+</footer>
+
+<!-- Add Google Maps -->
+<script>
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+    } else {
+        mySidebar.style.display = 'block';
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+</body>
+</html>

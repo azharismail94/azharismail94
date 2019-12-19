@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+
+<!-- <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDJtuGBxQY_6UWh3-kdNFGJi7T6Np_hApk",
+    authDomain: "coped-db.firebaseapp.com",
+    databaseURL: "https://coped-db.firebaseio.com",
+    projectId: "coped-db",
+    storageBucket: "coped-db.appspot.com",
+    messagingSenderId: "683075761857"
+  };
+  firebase.initializeApp(config);
+</script> -->
+
+<!-- <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script> -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCdzQVJ8BeDGjmMMdg6uCFCjCJOLWreUzE",
+    authDomain: "myport-72c27.firebaseapp.com",
+    databaseURL: "https://myport-72c27.firebaseio.com",
+    projectId: "myport-72c27",
+    storageBucket: "myport-72c27.appspot.com",
+    messagingSenderId: "58683527779",
+    appId: "1:58683527779:web:ed45b5f39b94c3fb1a5e56"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+div.ex4 {
+    height: 300px;
+    overflow: visible;
+}
+</style>
+<body>
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar w3-black w3-card" id="myNavbar">
+      <a class="w3-bar-item w3-button w3-wide"><b>My Portfolio</b></a>
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
+        <a onclick="window.close();"class="w3-bar-item w3-button"><i class="fa fa-remove"></i> CANCEL</a>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16"><i class="fa fa-sign-out fa-flip-horizontal"></i></a>
+    <a onclick="window.close();" class="w3-bar-item w3-button">EXIT</a>
+  </nav>
+
+  <!--Login-->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+
+  /* Full-width input fields */
+  input[type=text], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      color: black;
+  }
+
+  label{
+    color: black;
+  }
+
+  /* Set a style for all buttons */
+  button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+  }
+
+  button:hover {
+      opacity: 0.8;
+  }
+
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: #f44336;
+  }
+
+  /* Center the image and position the close button */
+  .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+      position: relative;
+  }
+
+  img.avatar {
+      width: 40%;
+      border-radius: 50%;
+  }
+
+  .container {
+      padding: 16px;
+  }
+
+  span.psw {
+      float: right;
+      padding-top: 16px;
+  }
+
+  /* The Modal (background) */
+  .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      padding-top: 60px;
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 500px; /* Could be more or less, depending on screen size */
+  }
+
+  /* The Close Button (x) */
+  .close {
+      position: absolute;
+      right: 25px;
+      top: 0;
+      color: #000;
+      font-size: 35px;
+      font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+      color: red;
+      cursor: pointer;
+  }
+
+  /* Add Zoom Animation */
+  .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+  }
+
+  @-webkit-keyframes animatezoom {
+      from {-webkit-transform: scale(0)}
+      to {-webkit-transform: scale(1)}
+  }
+
+  @keyframes animatezoom {
+      from {transform: scale(0)}
+      to {transform: scale(1)}
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+      span.psw {
+         display: block;
+         float: none;
+      }
+      .cancelbtn {
+         width: 100%;
+      }
+  }
+  </style>
+  </head>
+  <body>
+
+<div class="w3-container w3-blue-gray" style="padding:30px 16px" id="login">
+    <form class="modal-content animate" action="admin.html">
+      <div class="container">
+        <h3 class="w3-center" style="color:black"><b>LOGIN</b></h3>
+        <label for="uname"><b>ID / USERNAME</b></label>
+        <input id="emailI" type="text" placeholder="Input ID/username" name="uname" required>
+        <label for="psw"><b>PASSWORD</b></label>
+        <input id="passwordI" type="password" placeholder="Input Password" name="psw" required>
+        <button type="button" onclick="login();" >LOGIN</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember">Remember Me</input>
+        </label>
+      </div>
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="window.close();" class="cancelbtn">CANCEL</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="login.js"></script>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding">
+    <p>&copy; 2018, CoPED<br>By SAHYRO</p>
+</footer>
+</body>
+</html>
