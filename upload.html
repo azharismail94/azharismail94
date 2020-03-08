@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<body>
+
+  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var firebaseConfig = {
+    apiKey: "AIzaSyCdzQVJ8BeDGjmMMdg6uCFCjCJOLWreUzE",
+    authDomain: "myport-72c27.firebaseapp.com",
+    databaseURL: "https://myport-72c27.firebaseio.com",
+    projectId: "myport-72c27",
+    storageBucket: "myport-72c27.appspot.com",
+    messagingSenderId: "58683527779",
+    appId: "1:58683527779:web:ed45b5f39b94c3fb1a5e56"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+    // Get a reference to the storage service, which is used to create references in your storage bucket
+    var storage = firebase.storage();
+
+    // Create a storage reference from our storage service
+    var storageRef = storage.ref();
+
+    var database = firebase.database();
+    var databaseRef = database.ref();
+
+  </script>
+
+  <style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: auto;
+  width:450px;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 0px 5px 10px 0;
+  padding: 6px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.form-inline button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+  width:100px;
+}
+
+.form-inline button:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+  </style>
+
+<div class="w3-container w3-theme-l2" style="padding:10px 16px" id="addP">
+  <form class="form-inline" action="/upoad.js">
+    <fieldset class="w3-light-grey">
+    <div class="w3-row-padding" id="uploadDiv">
+      <h3 style="text-align: center;">Add Picture</h3>
+      <label class="upload-group" for="pName"><b>Name</b></label><br>
+      <input type="text" class="upload-group" id="pName" placeholder="Enter Name" name ="pcourse" required><br>
+      <label class="upload-group" for="pCategory"><b>Category</b></label><br>
+      <select id="pCategory" name="category" placeholder="Select Category" required>
+        <option value="volvo">Fashion</option>
+        <option value="saab">Food</option>
+        <option value="fiat">Landscape</option>
+        <option value="audi">Lightpainting</option>
+        <option value="audi">Micro</option>
+        <option value="audi">Milkway</option>
+        <option value="audi">Portrait</option>
+      </select><br><br>
+      <label class="upload-group" for="pCaption"><b>Caption</b></label><br>
+      <input type="text" class="upload-group" id="pCaption" name ="pCaption" placeholder="Enter Caption" required><br>
+      <label class="upload-group" for="pDate"><b>Date</b></label><br>
+      <input type="text" class="upload-group" id="pDate" name ="pDate" placeholder="Enter Date" required><br>
+      <label class="upload-group" for="pPriacy"><b>Privacy</b></label><br>
+      <select id="pPriacy" name="privacy" placeholder="Select" required>
+        <option value="volvo">Private</option>
+        <option value="saab">Public</option>
+      </select><br><br>
+      <label class="upload-group"><b>Upload Picture</b></label><br>
+      <input type="file" class="upload-group" id="file" required><br>
+      <div class="w3-row-padding w3-right" id="btnpadding" style="margin-top:10px">
+        <button type="button" class="w3-button w3-red" onclick="balikC()">CANCEL</button>
+        <button type="button" class="w3-button w3-green" id="uploadButton" onclick="uploadFile2()">SUBMIT</button>
+      </div>
+
+    </div>
+  </fieldset>
+  </form>
+</div>
+
+<div class="container">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </div>
+
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="myjs.js"></script>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding">
+    <p>&copy; 2019,  My Portfolio<br>By SAHYRO</p>
+</footer>
+
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+</body>
+</html>
