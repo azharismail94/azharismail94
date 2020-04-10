@@ -3,7 +3,7 @@
 <title>My Portfolio</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
@@ -27,261 +27,215 @@
 </script>
 
 <script>
-    var ptID = window.location.href.split('?').pop();
-  </script>
-
-<style>
-html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
-</style>
-<body class="w3-theme-l5">
-
-<!-- Navbar -->
-<div class="w3-top">
- <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
-  <a href="profile.html" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"></i>My Portfolio</a>
-  
-  <a class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white" title="My Account" onclick="openNav()" >
-  <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account"></a> -->
-    <img src="images/logo.jpg" class="w3-circle" style="height:25px;width:25px" alt="Avatar">
-  </a>
-  <a href="upload.html" class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white"><i class="fa fa-picture-o"></i> Add</a>
- </div>
-</div>
-
-<!-- Navbar on small screens -->
-<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-large">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large"></a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large"></a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large">Profile</a>
-  <!-- <a href="#" class="w3-bar-item w3-button w3-padding-large">Reference</a> -->
-  <a href="global.html" class="w3-bar-item w3-button w3-padding-large">Global</a>
-  <a onclick="getOut()" class="w3-bar-item w3-button w3-padding-large">Log Out</a>
-</div>
-
-<!-- <script src="login.js"></script> -->
-
-<script>
-  function getOut(){
-    firebase.auth().signOut();
-    window.close();
-    window.location.href = 'index.html';
-  }
+  var ptID = window.location.href.split('?').pop();
 </script>
 
-<!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
-  <!-- The Grid -->
-  <div class="w3-row">
-    <!-- Left Column -->
-    <div class="w3-col m3">
-      <!-- Profile -->
-      <div class="w3-card w3-round w3-white">
-        <div class="w3-container">
-         <h4 class="w3-center">My Profile</h4>
-         <p class="w3-center"><img src="images/avatar3.png" class="w3-circle" id="userImage" style="height:106px;width:106px" alt="Avatar"></p>
-         <hr>
-          <h7 class="w3-text-black" id="userName">Name</h7><br>
-          <h7 class="w3-text-theme" id="userLocation">Location</h7><br>
-          <h7 class="w3-text-theme" id="userPhone">Phone</h7>
-         <!-- <p><i class="fa fa-user fa-fw w3-margin-right w3-text-theme" id="userName" ></i>Name</p>
+<style>
+  html,
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Open Sans", sans-serif
+  }
+</style>
+
+<body class="w3-theme-l5">
+
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+      <a href="profile.html" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"></i>My Portfolio</a>
+
+      <a class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white" title="My Account" onclick="openNav()">
+        <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account"></a> -->
+        <img src="assets/images/logo.jpg" class="w3-circle" style="height:25px;width:25px" alt="Avatar">
+      </a>
+      <a href="upload.html" class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white"><i
+          class="fa fa-picture-o"></i> Add</a>
+    </div>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large"></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large"></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Profile</a>
+    <!-- <a href="#" class="w3-bar-item w3-button w3-padding-large">Reference</a> -->
+    <a href="global.html" class="w3-bar-item w3-button w3-padding-large">Global</a>
+    <a onclick="getOut()" class="w3-bar-item w3-button w3-padding-large">Log Out</a>
+  </div>
+
+  <!-- <script src="login.js"></script> -->
+
+  <script>
+    function getOut() {
+      firebase.auth().signOut();
+      window.close();
+      window.location.href = 'index.html';
+    }
+  </script>
+
+  <!-- Page Container -->
+  <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+    <!-- The Grid -->
+    <div class="w3-row">
+      <!-- Left Column -->
+      <div class="w3-col m3">
+        <!-- Profile -->
+        <div class="w3-card w3-round w3-white">
+          <div class="w3-container">
+            <h4 class="w3-center">My Profile</h4>
+            <p class="w3-center"><img src="assets/images/avatar3.png" class="w3-circle" id="userImage"
+                style="height:106px;width:106px" alt="Avatar"></p>
+            <hr>
+            <h7 class="w3-text-black" id="userName">Name</h7><br>
+            <h7 class="w3-text-theme" id="userLocation">Location</h7><br>
+            <h7 class="w3-text-theme" id="userPhone">Phone</h7>
+            <!-- <p><i class="fa fa-user fa-fw w3-margin-right w3-text-theme" id="userName" ></i>Name</p>
          <p><i class="fa fa-map fa-fw w3-margin-right w3-text-theme" id="userLocation"></i>Location</p>
          <p><i class="fa fa-phone fa-fw w3-margin-right w3-text-theme" id="userPhone"></i>Phone</p> -->
+          </div>
         </div>
-      </div>
-      <br>
+        <br>
 
-      <script>
-        // var ptID = window.location.href.split('?').pop();
-        var uid = localStorage["Uid"];
-        // alert(uid);
-        var uName;
-        var uURL;
-        var uLocation;
-        var uPhone;
-    
-        var databaseRef = firebase.database().ref('Profile');
-    
-    
-            databaseRef.once('value', function(snapshot){
-            snapshot.forEach(function(childSnapshot) {
-                var childKey = childSnapshot.key;
-                var childData = childSnapshot.val();
+        <script>
+          // var ptID = window.location.href.split('?').pop();
+          var uid = localStorage["Uid"];
+          // alert(uid);
+          var uName;
+          var uURL;
+          var uLocation;
+          var uPhone;
 
-                // uName  = childData.profileName;
-                // uLocation  = childData.profileLocation;
-                // uPhone  = childData.profilePhone;
-                // uURL = childData.profileURL;
+          var databaseRef = firebase.database().ref('Profile');
 
-                // document.getElementById("userImage").src = uURL;
-                // document.getElementById("userName").innerHTML= uName;
-                // document.getElementById("userLocation").innerHTML= uLocation;
-                // document.getElementById("userPhone").innerHTML= uPhone;
-    
-                cID = childData.profileID;
-    
-                if(cID == uid){
 
-                  uName  = childData.profileName;
-                  uLocation  = childData.profileLocation;
-                  uPhone  = childData.profilePhone;
-                  uURL = childData.profileURL;
+          databaseRef.once('value', function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+              var childKey = childSnapshot.key;
+              var childData = childSnapshot.val();
 
-                  document.getElementById("userImage").src = uURL;
-                  document.getElementById("userName").innerHTML= uName;
-                  document.getElementById("userLocation").innerHTML= uLocation;
-                  document.getElementById("userPhone").innerHTML= uPhone;
-                  // pURL  = childData.url;
-                  // pName = childData.course;
-                  // pDate = "Date : " + childData.date;
-                  // pTime = "Time : " + childData.time;
-                  // pPrice = "Price : " + childData.price;
-                  // mDes = "Details : " + childData.details;
-    
-                  // document.getElementById("poster").src = pURL;
-                  // document.getElementById("tajukP").innerHTML= pName;
-                  // document.getElementById("tarikhP").innerHTML= pDate;
-                  // document.getElementById("masaP").innerHTML= pTime;
-                  // document.getElementById("hargaP").innerHTML= pPrice;
-                  // document.getElementById("infoP").innerHTML= mDes;
-    
-                }
-              });
+              // uName  = childData.profileName;
+              // uLocation  = childData.profileLocation;
+              // uPhone  = childData.profilePhone;
+              // uURL = childData.profileURL;
+
+              // document.getElementById("userImage").src = uURL;
+              // document.getElementById("userName").innerHTML= uName;
+              // document.getElementById("userLocation").innerHTML= uLocation;
+              // document.getElementById("userPhone").innerHTML= uPhone;
+
+              cID = childData.profileID;
+
+              if (cID == uid) {
+
+                uName = childData.profileName;
+                uLocation = childData.profileLocation;
+                uPhone = childData.profilePhone;
+                uURL = childData.profileURL;
+
+
+
+                document.getElementById("userImage").src = uURL;
+                document.getElementById("userName").innerHTML = 'Name :'+uName;
+                document.getElementById("userLocation").innerHTML = 'Location :'+uLocation;
+                document.getElementById("userPhone").innerHTML = 'Phone :'+uPhone;
+                // pURL  = childData.url;
+                // pName = childData.course;
+                // pDate = "Date : " + childData.date;
+                // pTime = "Time : " + childData.time;
+                // pPrice = "Price : " + childData.price;
+                // mDes = "Details : " + childData.details;
+
+                // document.getElementById("poster").src = pURL;
+                // document.getElementById("tajukP").innerHTML= pName;
+                // document.getElementById("tarikhP").innerHTML= pDate;
+                // document.getElementById("masaP").innerHTML= pTime;
+                // document.getElementById("hargaP").innerHTML= pPrice;
+                // document.getElementById("infoP").innerHTML= mDes;
+
+              }
             });
-    
+          });
+
         </script>
-      
-      <!-- Accordion -->
-      <!-- <div class="w3-card w3-round">
-        <div class="w3-white">
-          <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
-          <div id="Demo1" class="w3-hide w3-container">
-            <p>Some text..</p>
-          </div>
-          <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
-          <div id="Demo2" class="w3-hide w3-container">
-            <p>Some other text..</p>
-          </div>
-          <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
-          <div id="Demo3" class="w3-hide w3-container">
-         <div class="w3-row-padding">
-         <br>
-           <div class="w3-half">
-             <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
-           </div>
-           <div class="w3-half">
-             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-           </div>
-           <div class="w3-half">
-             <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
-           </div>
-           <div class="w3-half">
-             <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
-           </div>
-           <div class="w3-half">
-             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-           </div>
-           <div class="w3-half">
-             <img src="/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
-           </div>
-         </div>
-          </div>
-        </div>      
+
       </div>
-      <br> -->
-      
-      <!-- Interests --> 
-      <!-- <div class="w3-card w3-round w3-white w3-hide-small">
-        <div class="w3-container">
-          <p>Interests</p>
-          <p>
-            <span class="w3-tag w3-small w3-theme-d5">News</span>
-            <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
-            <span class="w3-tag w3-small w3-theme-d3">Labels</span>
-            <span class="w3-tag w3-small w3-theme-d2">Games</span>
-            <span class="w3-tag w3-small w3-theme-d1">Friends</span>
-            <span class="w3-tag w3-small w3-theme">Games</span>
-            <span class="w3-tag w3-small w3-theme-l1">Friends</span>
-            <span class="w3-tag w3-small w3-theme-l2">Food</span>
-            <span class="w3-tag w3-small w3-theme-l3">Design</span>
-            <span class="w3-tag w3-small w3-theme-l4">Art</span>
-            <span class="w3-tag w3-small w3-theme-l5">Photos</span>
-          </p>
-        </div>
-      </div>
-      <br> -->
-      
-      <!-- Alert Box -->
-      <!-- <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
-        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
-          <i class="fa fa-remove"></i>
-        </span>
-        <p><strong>Hey!</strong></p>
-        <p>People are looking at your profile. Find out who.</p>
-      </div> -->
-    
-    <!-- End Left Column -->
-    </div>
-    <style>
-        img.hasBorder { border:1px solid; }
+      <style>
+        img.hasBorder {
+          border: 1px solid;
+        }
       </style>
 
-    <!-- Middle Column -->
-    <div class="w3-col m7">
+      <!-- Middle Column -->
+      <div class="w3-col m7">
 
         <div class="w3-row-padding">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding" >
+          <div class="w3-col m12">
+            <div class="w3-card w3-round w3-white">
+              <div class="w3-container w3-padding">
 
-              <h6 class="w3-opacity w3-center" style="padding:10px" ><b>GALLERY</b></h6>
+                <h6 class="w3-opacity w3-center" style="padding:10px"><b>GALLERY</b></h6>
 
-              <div class="w3-container" id="gallery">
-            <!-- <div class="w3-container" style="padding:40px 16px" id="gallery"> -->
-                    <!-- <h3 class="w3-center"><b>BECOME PART OF OUT JOURNEY<b></h3> -->
-                  
-                    <!-- <div class="w3-row-padding" style="margin-top:40px"> -->
-                    <div class="w3-row-padding">
-                        <div class="w3-third">
-                            <img class="hasBorder" src="images/icon_folder/Wedding16x16.jpg" style="width:100%" onclick="openGallery('Wedding')" class="w3-hover-opacity" alt="WEDDING">
-                        </div>
-                        <div class="w3-third">
-                            <img class="hasBorder" src="images/icon_folder/FOOD16x16.jpg" style="width:100%" onclick="openGallery('Food')" class="w3-hover-opacity" alt="FOOD">
-                        </div>
-                        <div class="w3-third">
-                            <img class="hasBorder" src="images/icon/paint.png" style="width:100%" onclick="openGallery('Lightpainting')" class="w3-hover-opacity" alt="LIGHTPAINTING">
-                        </div>
+                <div class="w3-container" id="gallery">
+                  <!-- <div class="w3-container" style="padding:40px 16px" id="gallery"> -->
+                  <!-- <h3 class="w3-center"><b>BECOME PART OF OUT JOURNEY<b></h3> -->
+
+                  <!-- <div class="w3-row-padding" style="margin-top:40px"> -->
+                  <div class="w3-row-padding">
+                    <div class="w3-third">
+                      <img class="hasBorder" src="assets/new_icon/street.jpg" style="width:100%"
+                        onclick="openGallery('Street')" class="w3-hover-opacity" alt="STREET">
                     </div>
-                  
-                    <div class="w3-row-padding w3-section">
-                        <div class="w3-third">
-                            <img class="hasBorder" src="images/icon_folder/landscap16x16.jpg" style="width:100%" onclick="openGallery('Landscape')" class="w3-hover-opacity" alt="LANDSCAPE">
-                        </div>
-                        <div class="w3-third">
-                            <img class="hasBorder" src="images/icon_folder/MICRO16x16.jpg" style="width:100%" onclick="openGallery('Micro')" class="w3-hover-opacity" alt="MICRO">
-                        </div>
-                        <div class="w3-third">
-                            <img class="hasBorder" src="images/icon_folder/STREETART16x16.jpg" style="width:100%" onclick="openGallery('Street')" class="w3-hover-opacity" alt="STREET">
-                        </div>
+                    <div class="w3-third">
+                      <img class="hasBorder" src="assets/new_icon/wedding.jpg" style="width:100%"
+                        onclick="openGallery('Wedding')" class="w3-hover-opacity" alt="WEDDING">
                     </div>
-                    
-                    <div class="w3-row-padding w3-section">
-                        <div class="w3-third">
-                            <img class="hasBorder" src="images/icon_folder/MILKY WAY16x16.jpg" style="width:100%" onclick="openGallery('Milkyway')" class="w3-hover-opacity" alt="MILKWAY">
-                        </div>
-                        <div class="w3-third">
-                            <img class="hasBorder" src="images/icon_folder/POTRAITE16x16.jpg" style="width:100%" onclick="openGallery('Portrait')" class="w3-hover-opacity" alt="PORTRAIT">
-                        </div>
-                        <div class="w3-third">
-                            <img class="hasBorder" src="images/icon/fashion.jpg" style="width:100%" onclick="openGallery('Fashion')" class="w3-hover-opacity" alt="FASHION">
-                        </div>
+                    <div class="w3-third">
+                      <img class="hasBorder" src="assets/new_icon/portrait.jpg" style="width:100%"
+                        onclick="openGallery('Portrait')" class="w3-hover-opacity" alt="PORTRAIT">
                     </div>
                   </div>
 
-              <!-- <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
+                  <div class="w3-row-padding w3-section">
+                    <div class="w3-third">
+                      <img class="hasBorder" src="assets/new_icon/fashion.jpg" style="width:100%"
+                        onclick="openGallery('Fashion')" class="w3-hover-opacity" alt="FASHION">
+                    </div>
+                    <div class="w3-third">
+                      <img class="hasBorder" src="assets/new_icon/food.jpg" style="width:100%"
+                        onclick="openGallery('Food')" class="w3-hover-opacity" alt="FOOD">
+                    </div>
+                    <div class="w3-third">
+                      <img class="hasBorder" src="assets/new_icon/landscape.jpg" style="width:100%"
+                        onclick="openGallery('Landscape')" class="w3-hover-opacity" alt="LANDSCAPE">
+                    </div>
+                  </div>
+
+                  <div class="w3-row-padding w3-section">
+                    <div class="w3-third">
+                      <img class="hasBorder" src="assets/new_icon/micro.jpg" style="width:100%"
+                        onclick="openGallery('Micro')" class="w3-hover-opacity" alt="MICRO">
+                    </div>
+                    <div class="w3-third">
+                      <img class="hasBorder" src="assets/new_icon/lightpainting.jpg" style="width:100%"
+                        onclick="openGallery('Lightpainting')" class="w3-hover-opacity" alt="LIGHTPAINTING">
+                    </div>
+                    <div class="w3-third">
+                      <img class="hasBorder" src="assets/new_icon/milkyway.jpg" style="width:100%"
+                        onclick="openGallery('Milkyway')" class="w3-hover-opacity" alt="MILKWAY">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
               <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button>  -->
 
 
-              <!-- <script>
+                <!-- <script>
                     var config = {
                       // ...
                     };
@@ -308,9 +262,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
                   </style>
                   </head>
                   <body> -->
-              
-                    <!-- Picture Table -->
-                        <!-- <div class="w3-container">
+
+                <!-- Picture Table -->
+                <!-- <div class="w3-container">
                           <br>
                           <table id="pt-table" >
                             <tr>
@@ -373,14 +327,14 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
                         </div> -->
 
 
+              </div>
             </div>
           </div>
         </div>
-      </div>
-          
 
-      
-      <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+
+
+        <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
         <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">1 min</span>
         <h4>John Doe</h4><br>
@@ -397,8 +351,8 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
         <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
       </div> -->
-      
-      <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+
+        <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
         <img src="/w3images/avatar5.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">16 min</span>
         <h4>Jane Doe</h4><br>
@@ -408,7 +362,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
       </div>   -->
 
-      <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
         <img src="/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">32 min</span>
         <h4>Angie Jane</h4><br>
@@ -419,12 +373,12 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
         <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
       </div>  -->
-      
-    <!-- End Middle Column -->
-    </div>
-    
-    <!-- Right Column -->
-    <!-- <div class="w3-col m2">
+
+        <!-- End Middle Column -->
+      </div>
+
+      <!-- Right Column -->
+      <!-- <div class="w3-col m2">
       <div class="w3-card w3-round w3-white w3-center">
         <div class="w3-container">
           <p>Upcoming Events:</p>
@@ -461,63 +415,64 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
         <p><i class="fa fa-bug w3-xxlarge"></i></p>
       </div> -->
-      
-    <!-- End Right Column -->
-    </div>
-    
-  <!-- End Grid -->
-  </div>
-  
-<!-- End Page Container -->
-</div>
-<br>
 
-<!-- Footer -->
-<!-- <footer class="w3-container w3-theme-d3 w3-padding-16">
+      <!-- End Right Column -->
+    </div>
+
+    <!-- End Grid -->
+  </div>
+
+  <!-- End Page Container -->
+  </div>
+  <br>
+
+  <!-- Footer -->
+  <!-- <footer class="w3-container w3-theme-d3 w3-padding-16">
   <h5>Footer</h5>
 </footer>
 
 <footer class="w3-container w3-theme-d5">
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </footer> -->
- 
-<footer class="w3-center w3-theme-d5 w3-padding">
-        <p>&copy; 2019,  My Portfolio<br>By SAHYRO</p>
-    </footer>
 
-<script>
+  <footer class="w3-center w3-theme-d5 w3-padding">
+    <p>&copy; 2019, My Portfolio<br>By SAHYRO</p>
+  </footer>
 
-function openGallery(x) {
-    // var uid = window.location.href.split('?').pop();
-    localStorage["Category"] = x;
-    // localStorage["Uid"] = uid;
-    //  var someValue = x;
-    window.location = 'gallery.html';
-}
+  <script>
 
-// Accordion
-function myFunction(id) {
-  var x = document.getElementById(id);
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-    x.previousElementSibling.className += " w3-theme-d1";
-  } else { 
-    x.className = x.className.replace("w3-show", "");
-    x.previousElementSibling.className = 
-    x.previousElementSibling.className.replace(" w3-theme-d1", "");
-  }
-}
+    function openGallery(x) {
+      // var uid = window.location.href.split('?').pop();
+      localStorage["Category"] = x;
+      // localStorage["Uid"] = uid;
+      //  var someValue = x;
+      window.location = 'gallery.html';
+    }
 
-// Used to toggle the menu on smaller screens when clicking on the menu button
-function openNav() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-</script>
+    // Accordion
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+      } else {
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className =
+          x.previousElementSibling.className.replace(" w3-theme-d1", "");
+      }
+    }
+
+    // Used to toggle the menu on smaller screens when clicking on the menu button
+    function openNav() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+  </script>
 
 </body>
-</html> 
+
+</html>
