@@ -8,11 +8,11 @@ $("#file").on("change", function (event) {
 });
 
 function uploadFile2() {
-    alert('test 1');
+    $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+    
 
     // Create a root reference
     var storageRef = firebase.storage().ref();
-    alert('test 2');
     // Create the file metadata
     var metadata = {
         contentType: 'image/jpeg'
@@ -22,18 +22,16 @@ function uploadFile2() {
 
     var d = new Date();
     var postKey = d.getTime();
-    alert('test 3');
     // var postKey = firebase.database().ref('posterD/').push().key;
     //var filename = selectedFile.name;
 
     // Upload file and metadata to the object
     var uploadTask = storageRef.child('All_Image_Uploads/' + postKey).put(selectedFile, metadata);
-    alert('test 4');
     // Register three observers:
     // 1. 'state_changed' observer, called any time the state changes
     // 2. Error observer, called on failure
     // 3. Completion observer, called on successful completion
-
+    
     // Listen for state changes, errors, and completion of the upload.
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
         function (snapshot) {
@@ -41,6 +39,7 @@ function uploadFile2() {
             // See below for more detail
 
         }, function (error) {
+            removeLoader();
             alert('Ralat!');
             // Handle unsuccessful uploads
         }, function () {
@@ -49,8 +48,6 @@ function uploadFile2() {
             // Upload completed successfully, now we can get the download URL
             uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
 
-                alert(downloadURL);
-                alert('saveInfo');
                 saveInfo(postKey, downloadURL);
             });
 
@@ -61,31 +58,19 @@ function uploadFile2() {
 }
 
 function saveInfo(postKey, downloadURL) {
-    alert('test 5');
 
     //var postKey = firebase.database().ref('posterD/').push().key;
     // var user = firebase.auth().currentUser;
     var uid = localStorage["Uid"];
-    alert(uid);
     // var uid = user.uid;
     var d = new Date();
-    alert(d);
     var sTime = d.getTime();
-    alert(sTime);
     var sImageID = firebase.database().ref('user_upload/' + uid).push().key;
-    alert(sImageID);
     var sName = document.getElementById('pName').value;
-    alert(sName);
     var sCategory = document.getElementById('pCategory').value;
-    alert(sCategory);
     var sCaption = document.getElementById('pCaption').value;
-    alert(sCaption);
     var sDate = document.getElementById('pDate').value;
-    alert(sDate);
     var sPrivacy = document.getElementById('pPrivacy').value;
-    alert(sPrivacy);
-
-    alert('test 6');
 
     var postData = {
         imageName: sName,
@@ -97,8 +82,6 @@ function saveInfo(postKey, downloadURL) {
         iTime: sTime,
         imagePrivacy: sPrivacy,
     };
-
-    alert('test 7');
 
 
     if (sPrivacy == 'Public') {
@@ -118,7 +101,7 @@ function saveInfo(postKey, downloadURL) {
         updates['user_upload/' + uid +'/'+ sImageID] = postData;
         var databaseRef = firebase.database().ref().update(updates);
     }
-
+    removeLoader();
     alert('Data added!');
     balikC();
 }
@@ -129,4 +112,11 @@ function balikC() {
 
 function reload_page() {
     window.location.reload();
+}
+
+function removeLoader(){
+    $( "#loadingDiv" ).fadeOut(500, function() {
+      // fadeOut complete. Remove the loading div
+      $( "#loadingDiv" ).remove(); //makes page more lightweight 
+  });  
 }
