@@ -40,9 +40,13 @@
   h5 {
     font-family: "Open Sans", sans-serif
   }
+
+  .backg {
+    background-color: #FFF380;
+  }
 </style>
 
-<body class="w3-theme-l5">
+<body class="backg">
 
   <!-- Navbar -->
   <div class="w3-top">
@@ -65,21 +69,27 @@
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Profile</a>
     <!-- <a href="#" class="w3-bar-item w3-button w3-padding-large">Reference</a> -->
     <a href="global.html" class="w3-bar-item w3-button w3-padding-large">Global</a>
-    <a onclick="getOut()" class="w3-bar-item w3-button w3-padding-large">Log Out</a>
+    <a onclick="logout()" class="w3-bar-item w3-button w3-padding-large">Log Out</a>
   </div>
 
-  <!-- <script src="login.js"></script> -->
+  <script src="login.js"></script>
 
-  <script>
+  <!-- <script>
     function getOut() {
+
+      localStorage["Uid"] = null;
+      user = null;
       firebase.auth().signOut();
-      window.close();
       window.location.href = 'index.html';
+
+      // firebase.auth().signOut();
+      // window.close();
+      // window.location.href = 'index.html';
     }
-  </script>
+  </script> -->
 
   <!-- Page Container -->
-  <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+  <div class="w3-container w3-content backg" style="max-width:1400px;margin-top:80px">
     <!-- The Grid -->
     <div class="w3-row">
       <!-- Left Column -->
@@ -118,16 +128,6 @@
               var childKey = childSnapshot.key;
               var childData = childSnapshot.val();
 
-              // uName  = childData.profileName;
-              // uLocation  = childData.profileLocation;
-              // uPhone  = childData.profilePhone;
-              // uURL = childData.profileURL;
-
-              // document.getElementById("userImage").src = uURL;
-              // document.getElementById("userName").innerHTML= uName;
-              // document.getElementById("userLocation").innerHTML= uLocation;
-              // document.getElementById("userPhone").innerHTML= uPhone;
-
               cID = childData.profileID;
 
               if (cID == uid) {
@@ -137,25 +137,13 @@
                 uPhone = childData.profilePhone;
                 uURL = childData.profileURL;
 
-
-
+                if (uURL != '' || uURL != null) {
+                  document.getElementById("userImage").src = uURL;
+                }
                 document.getElementById("userImage").src = uURL;
-                document.getElementById("userName").innerHTML = 'Name :'+uName;
-                document.getElementById("userLocation").innerHTML = 'Location :'+uLocation;
-                document.getElementById("userPhone").innerHTML = 'Phone :'+uPhone;
-                // pURL  = childData.url;
-                // pName = childData.course;
-                // pDate = "Date : " + childData.date;
-                // pTime = "Time : " + childData.time;
-                // pPrice = "Price : " + childData.price;
-                // mDes = "Details : " + childData.details;
-
-                // document.getElementById("poster").src = pURL;
-                // document.getElementById("tajukP").innerHTML= pName;
-                // document.getElementById("tarikhP").innerHTML= pDate;
-                // document.getElementById("masaP").innerHTML= pTime;
-                // document.getElementById("hargaP").innerHTML= pPrice;
-                // document.getElementById("infoP").innerHTML= mDes;
+                document.getElementById("userName").innerHTML = 'Name :' + uName;
+                document.getElementById("userLocation").innerHTML = 'Location :' + uLocation;
+                document.getElementById("userPhone").innerHTML = 'Phone :' + uPhone;
 
               }
             });
@@ -186,237 +174,58 @@
 
                   <!-- <div class="w3-row-padding" style="margin-top:40px"> -->
                   <div class="w3-row-padding">
-                    <div class="w3-third">
+                    <div class="w3-third" style="margin-top:10px">
                       <img class="hasBorder" src="assets/new_icon/street.jpg" style="width:100%"
                         onclick="openGallery('Street')" class="w3-hover-opacity" alt="STREET">
                     </div>
-                    <div class="w3-third">
+                    <div class="w3-third" style="margin-top:10px">
                       <img class="hasBorder" src="assets/new_icon/wedding.jpg" style="width:100%"
                         onclick="openGallery('Wedding')" class="w3-hover-opacity" alt="WEDDING">
                     </div>
-                    <div class="w3-third">
+                    <div class="w3-third" style="margin-top:10px">
                       <img class="hasBorder" src="assets/new_icon/portrait.jpg" style="width:100%"
                         onclick="openGallery('Portrait')" class="w3-hover-opacity" alt="PORTRAIT">
                     </div>
                   </div>
 
                   <div class="w3-row-padding w3-section">
-                    <div class="w3-third">
+                    <div class="w3-third" style="margin-top:10px">
                       <img class="hasBorder" src="assets/new_icon/fashion.jpg" style="width:100%"
                         onclick="openGallery('Fashion')" class="w3-hover-opacity" alt="FASHION">
                     </div>
-                    <div class="w3-third">
+                    <div class="w3-third" style="margin-top:10px">
                       <img class="hasBorder" src="assets/new_icon/food.jpg" style="width:100%"
                         onclick="openGallery('Food')" class="w3-hover-opacity" alt="FOOD">
                     </div>
-                    <div class="w3-third">
+                    <div class="w3-third" style="margin-top:10px">
                       <img class="hasBorder" src="assets/new_icon/landscape.jpg" style="width:100%"
                         onclick="openGallery('Landscape')" class="w3-hover-opacity" alt="LANDSCAPE">
                     </div>
                   </div>
 
                   <div class="w3-row-padding w3-section">
-                    <div class="w3-third">
+                    <div class="w3-third" style="margin-top:10px">
                       <img class="hasBorder" src="assets/new_icon/micro.jpg" style="width:100%"
                         onclick="openGallery('Micro')" class="w3-hover-opacity" alt="MICRO">
                     </div>
-                    <div class="w3-third">
+                    <div class="w3-third" style="margin-top:10px">
                       <img class="hasBorder" src="assets/new_icon/lightpainting.jpg" style="width:100%"
                         onclick="openGallery('Lightpainting')" class="w3-hover-opacity" alt="LIGHTPAINTING">
                     </div>
-                    <div class="w3-third">
+                    <div class="w3-third" style="margin-top:10px">
                       <img class="hasBorder" src="assets/new_icon/milkyway.jpg" style="width:100%"
                         onclick="openGallery('Milkyway')" class="w3-hover-opacity" alt="MILKWAY">
                     </div>
                   </div>
                 </div>
 
-                <!-- <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
-              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button>  -->
-
-
-                <!-- <script>
-                    var config = {
-                      // ...
-                    };
-                    firebase.initializeApp(config);
-              
-                  </script>
-              
-                  <style>
-              
-                  th, td {
-                      text-align: left;
-                      padding: 8px;
-                  }
-                  .btn{
-                    border-radius: 8px;
-                    background-color: #555555;
-                    color: white;
-                    border: 2px solid;
-                    padding: 15px 25px;
-                  }
-                  .btn:hover{
-                    background-color: white;
-                  }
-                  </style>
-                  </head>
-                  <body> -->
-
-                <!-- Picture Table -->
-                <!-- <div class="w3-container">
-                          <br>
-                          <table id="pt-table" >
-                            <tr>
-                              <td width="40%"></td>
-                              <td width="20%"></td>
-              
-              
-                            </tr>
-                          </table>
-              
-                          <script>
-              
-                            var tbp = document.getElementById('pt-table');
-                            var rowIndex = 1;
-                            var databaseRef = firebase.database().ref('posterD').orderByValue();
-              
-                              databaseRef.once('value', function(snapshot){
-                              snapshot.forEach(function(childSnapshot) {
-                                  var childKey = childSnapshot.key;
-                                  var childData = childSnapshot.val();
-              
-                                  var row = tbp.insertRow(rowIndex);
-                                  var cellPoster = row.insertCell(0);
-                                  //var cellDetails = row.insertCell(1);
-                                  var cellView = row.insertCell(1);
-              
-                                  var img2 = document.createElement("img");
-                                  img2.src = childData.url;
-                                  img2.setAttribute("width", "100%");
-              
-                                  img2.setAttribute("position", "middle");
-                                  cellPoster.appendChild(img2);
-              
-                                  //pDetails = "Details : " + childData.details;
-                                  //document.getElementById("hargaP").innerHTML= pDetails;
-              
-                                  var tID = childData.id;
-                                  var btn = document.createElement('input');
-                                  btn.type = "button";
-                                  btn.className = "btn";
-                                  btn.value = "VIEW";
-                                  btn.color = "black";
-                                  btn.onclick = (function(tID) {return function() {pView(tID);}})(tID);
-                                  cellView.appendChild(btn);
-              
-                                  rowIndex = rowIndex + 1;
-                                });
-                              });
-              
-                              function pView(x) {
-                                  var someValue = x;
-                                  window.location = 'details.html?'+someValue;
-                              }
-              
-                              function reload_page(){
-                               window.location.reload();
-                              }
-                        </script>
-              
-                        </div> -->
-
-
               </div>
             </div>
           </div>
         </div>
 
-
-
-        <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">1 min</span>
-        <h4>John Doe</h4><br>
-        <hr class="w3-clear">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="w3-row-padding" style="margin:0 -16px">
-            <div class="w3-half">
-              <img src="/w3images/lights.jpg" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
-            </div>
-            <div class="w3-half">
-              <img src="/w3images/nature.jpg" style="width:100%" alt="Nature" class="w3-margin-bottom">
-          </div>
-        </div>
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div> -->
-
-        <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <img src="/w3images/avatar5.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">16 min</span>
-        <h4>Jane Doe</h4><br>
-        <hr class="w3-clear">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div>   -->
-
-        <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <img src="/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">32 min</span>
-        <h4>Angie Jane</h4><br>
-        <hr class="w3-clear">
-        <p>Have you seen this?</p>
-        <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div>  -->
-
-        <!-- End Middle Column -->
       </div>
 
-      <!-- Right Column -->
-      <!-- <div class="w3-col m2">
-      <div class="w3-card w3-round w3-white w3-center">
-        <div class="w3-container">
-          <p>Upcoming Events:</p>
-          <img src="/w3images/forest.jpg" alt="Forest" style="width:100%;">
-          <p><strong>Holiday</strong></p>
-          <p>Friday 15:00</p>
-          <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
-        </div>
-      </div>
-      <br>
-      
-      <div class="w3-card w3-round w3-white w3-center">
-        <div class="w3-container">
-          <p>Friend Request</p>
-          <img src="/w3images/avatar6.png" alt="Avatar" style="width:50%"><br>
-          <span>Jane Doe</span>
-          <div class="w3-row w3-opacity">
-            <div class="w3-half">
-              <button class="w3-button w3-block w3-green w3-section" title="Accept"><i class="fa fa-check"></i></button>
-            </div>
-            <div class="w3-half">
-              <button class="w3-button w3-block w3-red w3-section" title="Decline"><i class="fa fa-remove"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      
-      <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
-        <p>ADS</p>
-      </div>
-      <br>
-      
-      <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
-        <p><i class="fa fa-bug w3-xxlarge"></i></p>
-      </div> -->
-
-      <!-- End Right Column -->
     </div>
 
     <!-- End Grid -->
@@ -426,14 +235,6 @@
   </div>
   <br>
 
-  <!-- Footer -->
-  <!-- <footer class="w3-container w3-theme-d3 w3-padding-16">
-  <h5>Footer</h5>
-</footer>
-
-<footer class="w3-container w3-theme-d5">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer> -->
 
   <footer class="w3-center w3-theme-d5 w3-padding">
     <p>&copy; 2020, My Portfolio<br>By AZHAR ISMAIL</p>

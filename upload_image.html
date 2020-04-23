@@ -43,6 +43,10 @@
       box-sizing: border-box;
     }
 
+    .backg{
+      background-color: #FFA62F;
+    }
+
 
     .form-inline {
       display: flex;
@@ -146,7 +150,7 @@
     }
   </style>
 
-  <div class="w3-container w3-khaki" style="padding:10px 16px" id="about">
+  <div class="w3-container backg" style="padding:10px 16px" id="about">
     <form class="form-inline" action="/myjs.js">
       <fieldset class="w3-light-grey">
         <div class="w3-row-padding" id="uploadDiv">
@@ -181,11 +185,11 @@
             <option value="Public">Public</option>
           </select><br><br>
 
-          <label class="upload-group"><b>Upload File</b></label><br>
+          <label class="upload-group"><b>Upload Image</b></label><br>
           <input type="file" class="upload-group" id="file"><br>
 
-          <button type="button" class="w3-button" id="uploadButton" onclick="uploadFile2()">SUBMIT</button>
-          <button type="button" class="w3-button w3-red" onclick="balikC()">CANCEL</button><br>
+          <button type="button" class="w3-button" id="uploadButton" onclick="uploadFile2()">Upload</button>
+          <button type="button" class="w3-button w3-red" onclick="balikC()">Cancel</button><br>
 
         </div>
       </fieldset>

@@ -101,8 +101,8 @@ div.ex4 {
 
   /* Set a style for all buttons */
   button {
-      background-color: #4CAF50;
-      color: white;
+      background-color: #00FF00;
+      color: black;
       padding: 14px 20px;
       margin: 8px 0;
       border: none;
@@ -124,9 +124,9 @@ div.ex4 {
   .signbtn {
       width: auto;
       padding: 10px 18px;
-      background-color: 
+      /* background-color:  */
       /* blue; */
-      #36C0F4;
+      /* #36C0F4; */
   }
 
   /* Center the image and position the close button */
@@ -215,26 +215,29 @@ div.ex4 {
          width: 100%;
       }
   }
+  .backg{
+      background-color: #FFF380;
+    }
   </style>
   </head>
   <body>
 
-<div class="w3-container w3-blue-gray" style="padding:30px 16px" id="login">
+<div class="w3-container backg" style="padding:30px 16px" id="login">
     <form class="modal-content animate" action="admin.html">
       <div class="container">
-        <h3 class="w3-center" style="color:black"><b>LOGIN</b></h3>
-        <label for="uname"><b>ID / USERNAME</b></label>
-        <input id="emailI" type="text" placeholder="Input ID/username" name="uname" required>
-        <label for="psw"><b>PASSWORD</b></label>
+        <h3 class="w3-center" style="color:black"><b>Log In</b></h3>
+        <label for="uname"><b>Email</b></label>
+        <input id="emailI" type="text" placeholder="Input Email" name="uname" required>
+        <label for="psw"><b>Password</b></label>
         <input id="passwordI" type="password" placeholder="Input Password" name="psw" required>
-        <button type="button" onclick="login();" >LOGIN</button>
+        <button type="button" onclick="login();" >Login</button>
         <label>
           <input type="checkbox" checked="checked" name="remember">Remember Me</input>
         </label>
       </div>
       <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick="window.close();" class="cancelbtn">CANCEL</button>
-        <button type="button" class="signbtn">Sign Up</button>
+        <button type="button" onclick="window.close();" class="cancelbtn">Cancel</button>
+        <button type="button" onclick="location.href='signup.html'" class="signbtn">Sign Up</button>
       </div>
     </form>
   </div>
