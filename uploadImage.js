@@ -2,31 +2,34 @@ var provider = new firebase.auth.GoogleAuthProvider();
 var user;
 var selectedFile;
 
-$("#file").on("change", function (event) {
+$("#file").on("change", function(event) {
 	selectedFile = event.target.files[0];
 	$("#uploadButton").show();
 });
 
 function uploadFile() {
+	alert('test 1');
 
 	// Create a root reference
 	var storageRef = firebase.storage().ref();
-
+	alert('test 2');
 	// Create the file metadata
 	var metadata = {
 		contentType: 'image/jpeg'
 	};
+	alert('test 3');
 	// Create a name reference
 	alert('Uploading image');
 	var d = new Date();
 	var postKey = d.getTime();
 	// final StorageReference storageReference2nd = storageReference.child(System.currentTimeMillis() + "." + GetFileExtension(FilePathUri));
 
-	// var postKey = firebase.database().ref('posterD/').push().key;
-	//var filename = selectedFile.name;
-
 	// Upload file and metadata to the object
 
+	// var storageRef = firebase.storage().ref('/All_Image_Uploads/' + postKey);
+	// var uploadTask = storageRef.put(selectedFile);
+
+	alert('test 4');
 	var uploadTask = storageRef.child('All_Image_Uploads/' + postKey).put(selectedFile, metadata);
 
 
@@ -59,44 +62,64 @@ function uploadFile() {
 
 }
 
+// function uplaadImage() {
+// 	alert('pressed');
+// 	const ref = firebase.storage().ref();
+// 	const file = $('#ifile').get(0).files[0];
+// 	var d = new Date();
+// 	// var postKey = d.getTime();
+// 	const name = d.getTime();
+// 	const metadata = { contentType: 'image/jpeg' };
+// 	const task = ref.child(name).put(file, metadata);
+// 	task
+// 		.then(snapshot => snapshot.ref.getDownloadURL())
+// 		.then((url) => {
+// 			// console.log(url);
+// 			// document.querySelector('#someImageTagID').src = url;
+// 			saveInfo(name, url);
+// 		})
+// 		.catch(console.error);
+// }
+
 function saveInfo(postKey, downloadURL) {
 	//var postKey = firebase.database().ref('posterD/').push().key;
-
+	var user = firebase.auth().currentUser;
+	var uid = user.uid;
+	var d = new Date();
+	var sTime = d.getTime();
+	var sImageID = firebase.database().ref('user_upload/' + uid).push().key;
 	var sName = document.getElementById('pName').value;
 	var sCategory = document.getElementById('pCategory').value;
 	var sCaption = document.getElementById('pCaption').value;
 	var sDate = document.getElementById('pDate').value;
 	var sPrivacy = document.getElementById('pPriacy').value;
 
+	var postData = {
+		imageName : sName,
+		imageURL : downloadURL,
+		imageID : sImageID,
+		imageCategory : sCategory,
+		imageCaption : sCaption,
+		imageDate : sDate,
+		iTime : sTime,
+		imagePrivacy : sPrivacy,
+	};
+
 	if (sPrivacy == 'Public') {
-		var postData = {
-			url: downloadURL,
-			id: postKey,
-			course: sCourse,
-			date: sDate,
-			duration: sDuration,
-			time: sTime,
-			price: sPrice,
-			details: sDetails
-		};
+
 		var updates = {};
-		updates['posterD/' + postKey] = postData;
+		updates['user_upload/' + uid + sImageID] = postData;
 		var databaseRef = firebase.database().ref().update(updates);
+
+		var updates2 = {};
+		updates2['all_image/' + sImageID] = postData;
+		var databaseRef = firebase.database().ref().update(updates2);
 
 	}
 	else {
-		var postData = {
-			url: downloadURL,
-			id: postKey,
-			course: sCourse,
-			date: sDate,
-			duration: sDuration,
-			time: sTime,
-			price: sPrice,
-			details: sDetails
-		};
+
 		var updates = {};
-		updates['posterD/' + postKey] = postData;
+		updates['user_upload/' + sImageID] = postData;
 		var databaseRef = firebase.database().ref().update(updates);
 	}
 
@@ -105,7 +128,7 @@ function saveInfo(postKey, downloadURL) {
 }
 
 function balikC() {
-	window.open("admin.html", "_self");
+	window.open("profile.html", "_self");
 }
 
 function reload_page() {
