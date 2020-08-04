@@ -223,22 +223,24 @@ div.ex4 {
   <body>
 
 <div class="w3-container backg" style="padding:30px 16px" id="login">
-    <form class="modal-content animate" action="admin.html">
+    <form class="modal-content animate" method="POST" action="..." onsubmit="return checkForm(this);">
+      <fieldset>
       <div class="container">
         <h3 class="w3-center" style="color:black"><b>Log In</b></h3>
         <label for="uname"><b>Email</b></label>
-        <input id="emailI" type="text" placeholder="Input Email" name="uname" required>
+        <input id="emailI" type="text" title="Enter your username" placeholder="Input Email" name="uname" required>
         <label for="psw"><b>Password</b></label>
         <input id="passwordI" type="password" placeholder="Input Password" name="psw" required>
-        <button type="button" onclick="login();" >Login</button>
-        <label>
+        <button type="submit" onclick="login();" >Login</button>
+        <!-- <label>
           <input type="checkbox" checked="checked" name="remember">Remember Me</input>
-        </label>
+        </label> -->
       </div>
       <div class="container" style="background-color:#f1f1f1">
         <button type="button" onclick="window.close();" class="cancelbtn">Cancel</button>
         <button type="button" onclick="location.href='signup.html'" class="signbtn">Sign Up</button>
       </div>
+    </fieldset>
     </form>
   </div>
 
