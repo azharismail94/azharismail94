@@ -258,8 +258,9 @@
     <body>
 
         <div class="w3-container backg" style="padding:30px 16px" id="login">
-            <form class="modal-content animate" method="POST" action="..." onsubmit="return checkForm(this);">
-                <fieldset>
+            <form class="modal-content animate">
+             <!-- method="POST" action="..." onsubmit="return checkForm(this);"> -->
+                <!-- <fieldset> -->
                 <div class="container">
                     <h3 class="w3-center" style="color:black"><b>Sign Up</b></h3>
                     <label for="name"><b>Name</b></label>
@@ -284,13 +285,13 @@
                     <!-- <label class="upload-group"><b>Upload Image</b></label><br>
                     <input type="file" class="upload-group" id="file"><br><br> -->
 
-                    <button type="submit" onclick="signup();">Sign Up</button>
+                    <button type="button" onclick="signup();">Sign Up</button>
 
                 </div>
                 <div class="container" style="background-color:#f1f1f1">
                     <button type="submit" onclick="window.close();" class="cancelbtn">Cancel</button>
                 </div>
-            </fieldset>
+            <!-- </fieldset> -->
             </form>
         </div>
 

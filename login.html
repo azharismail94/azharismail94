@@ -223,15 +223,18 @@ div.ex4 {
   <body>
 
 <div class="w3-container backg" style="padding:30px 16px" id="login">
-    <form class="modal-content animate" method="POST" action="..." onsubmit="return checkForm(this);">
-      <fieldset>
+    <form class="modal-content animate" >
+    <!-- method="POST" onsubmit="login();" action="profile.html"> -->
+    <!-- method="POST" action="..." onsubmit="return login();"> -->
+      <!-- <fieldset> -->
       <div class="container">
         <h3 class="w3-center" style="color:black"><b>Log In</b></h3>
         <label for="uname"><b>Email</b></label>
         <input id="emailI" type="text" title="Enter your username" placeholder="Input Email" name="uname" required>
         <label for="psw"><b>Password</b></label>
         <input id="passwordI" type="password" placeholder="Input Password" name="psw" required>
-        <button type="submit" onclick="login();" >Login</button>
+        <button type="button" onclick="login();" >Login</button>
+        <!-- onclick="login();" -->
         <!-- <label>
           <input type="checkbox" checked="checked" name="remember">Remember Me</input>
         </label> -->
@@ -240,11 +243,65 @@ div.ex4 {
         <button type="button" onclick="window.close();" class="cancelbtn">Cancel</button>
         <button type="button" onclick="location.href='signup.html'" class="signbtn">Sign Up</button>
       </div>
-    </fieldset>
+    <!-- </fieldset> -->
     </form>
   </div>
 
   <script src="login.js"></script>
+  <!-- <script>
+    function testlogin() {
+
+//[START signout]
+firebase.auth().signOut();
+// [END signout]
+
+var userEmail = document.getElementById("emailI").value;
+var userPass = document.getElementById("passwordI").value;
+
+firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
+  // Handle Errors here.
+
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // [START_EXCLUDE]
+  if (errorCode === 'auth/wrong-password') {
+    alert('Wrong password.');
+  } else {
+    alert(errorMessage);
+  }
+
+  // ...
+});
+firebase.auth().onAuthStateChanged(function (user) {
+
+  if (user) {
+    // User is signed in.
+    var user = firebase.auth().currentUser;
+    var uid;
+
+    if (user != null) {
+
+      uid = user.uid;
+      localStorage["Uid"] = uid;
+      // check_user(uid);
+      // alert(uid);
+      alert("Welcome!");
+      window.location.href = 'profile.html';
+
+    }
+    else {
+      alert("Identificaion Error!");
+      //window.location.reload();
+    }
+
+  } else {
+    console.log(123)
+    // No user is signed in.
+  }
+});
+
+}
+  </script> -->
 
 
 <!-- Footer -->

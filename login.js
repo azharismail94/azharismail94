@@ -40,7 +40,7 @@ function login() {
       }
       else {
         alert("Identificaion Error!");
-        window.location.reload();
+        //window.location.reload();
       }
 
     } else {
